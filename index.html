@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- PERSONALIZAR: Título da aba do navegador -->
+    <title>Quer Ser Minha Namorada? 💝</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Elementos Flutuantes de Fundo -->
+    <div class="floating-elements">
+        <!-- Corações e ursos serão adicionados via JavaScript -->
+    </div>
+
+    <!-- Container Principal -->
+    <div class="container">
+        <h1 id="valentineTitle"></h1>
+        
+        <!-- Player de Música -->
+        <div id="musicControls" class="music-controls">
+            <button id="musicToggle" class="music-btn">🎵 Tocar Música</button>
+            <audio id="bgMusic" loop>
+                <source id="musicSource" type="audio/mpeg">
+                Seu navegador não suporta o elemento de áudio.
+            </audio>
+        </div>
+
+        <!-- Primeira Pergunta -->
+        <div class="question-section" id="question1">
+            <h2 id="question1Text"></h2>
+            <button class="cute-btn" onclick="moveButton(this)" id="yesBtn1"></button>
+            <button class="cute-btn" onclick="moveButton(this)" id="noBtn1"></button>
+            <!-- PERSONALIZAR: Texto da resposta secreta -->
+            <div class="secret-answer">
+                <button class="cute-btn special" onclick="showNextQuestion(2)" id="secretAnswerBtn"></button>
+            </div>
+        </div>
+
+        <!-- Segunda Pergunta (Medidor de Amor) -->
+        <div class="question-section hidden" id="question2">
+            <h2 id="question2Text"></h2>
+            <!-- Configurações do medidor de amor: min="0" max="10000" -->
+            <div class="love-meter">
+                <input type="range" min="0" max="10000" value="100" class="slider" id="loveMeter">
+                <p>
+                    <span class="love-value-container"><span id="startText"></span> (<span id="loveValue">100</span>%)</span>
+                    <span id="extraLove" class="hidden"></span>
+                </p>
+            </div>
+            <button class="cute-btn" onclick="showNextQuestion(3)" id="nextBtn"></button>
+        </div>
+
+        <!-- Pergunta Final -->
+        <div class="question-section hidden" id="question3">
+            <h2 id="question3Text"></h2>
+            <button class="cute-btn final-yes" onclick="celebrate()" id="yesBtn3"></button>
+            <button class="cute-btn" onclick="moveButton(this)" id="noBtn3"></button>
+        </div>
+
+        <!-- PERSONALIZAR: Mensagem de celebração com IMAGEM -->
+        <div class="celebration hidden" id="celebration">
+            <h2 id="celebrationTitle"></h2>
+            <div class="celebration-image-container">
+                <!-- PERSONALIZAR: Substitua o URL pela sua imagem -->
+                <img src="/img/b3235f97-49f3-4fc7-b251-dddee2285c3e.jpg" alt="Nós" class="celebration-image">
+            </div>
+            <p class="celebration-text" id="celebrationMessage"></p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="theme.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
