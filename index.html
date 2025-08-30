@@ -6,23 +6,20 @@
     <title>Quer Ser Minha Namorada? 💝</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Variáveis CSS */
+        /* Variáveis CSS - Serão atualizadas por JavaScript */
         :root {
+            /* Cores */
             --background-color-1: #ffafbd;
             --background-color-2: #ffc3a0;
             --button-color: #ff6b6b;
             --button-hover: #ff8787;
             --text-color: #ff4757;
+
+            /* Animações */
             --float-duration: 15s;
             --float-distance: 50px;
             --bounce-speed: 0.5s;
             --heart-explosion-size: 1.5;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
@@ -32,23 +29,18 @@
             justify-content: center;
             align-items: center;
             background: linear-gradient(135deg, var(--background-color-1), var(--background-color-2));
-            font-family: 'Poppins', sans-serif;
+            font-family: Arial, sans-serif;
             overflow-x: hidden;
-            color: #333;
-            padding: 20px;
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.9);
             padding: 2rem;
             border-radius: 20px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             text-align: center;
             max-width: 600px;
-            width: 100%;
             margin: 20px;
-            position: relative;
-            z-index: 2;
             overflow: visible !important;
         }
 
@@ -58,15 +50,12 @@
             height: 100%;
             pointer-events: none;
             z-index: 1;
-            top: 0;
-            left: 0;
         }
 
         .heart, .bear {
             position: absolute;
             font-size: 2rem;
             animation: float var(--float-duration) linear infinite;
-            user-select: none;
         }
 
         @keyframes float {
@@ -78,37 +67,16 @@
             }
         }
 
-        h1 {
-            color: var(--text-color);
-            margin-bottom: 1.5rem;
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: var(--button-color);
-            margin-bottom: 1.5rem;
-            font-family: 'Dancing Script', cursive;
-            font-size: 2rem;
-        }
-
-        .question-section {
-            margin: 2rem 0;
-        }
-
         .cute-btn {
             background: var(--button-color);
             border: none;
-            padding: 12px 25px;
+            padding: 10px 20px;
             margin: 10px;
-            border-radius: 25px;
+            border-radius: 20px;
             color: white;
             font-size: 1.1rem;
             cursor: pointer;
             transition: transform 0.3s, background 0.3s;
-            font-family: 'Poppins', sans-serif;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .cute-btn:hover {
@@ -118,6 +86,12 @@
 
         .hidden {
             display: none;
+        }
+
+        .disabled-btn {
+            opacity: 0.7;
+            cursor: not-allowed;
+            pointer-events: none;
         }
 
         .secret-answer {
@@ -180,6 +154,7 @@
             box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
         }
 
+        /* Garantir que a trilha seja visível */
         .slider::-webkit-slider-runnable-track,
         .slider::-moz-range-track {
             width: 100%;
@@ -189,6 +164,7 @@
             border: 2px solid rgba(255, 255, 255, 0.5);
         }
 
+        /* Garantir que o controle deslizante seja estilizado corretamente */
         .slider::-webkit-slider-thumb {
             -webkit-appearance: none;
             width: 35px;
@@ -287,6 +263,20 @@
             }
         }
 
+        h1, h2 {
+            font-family: Arial, sans-serif;
+            font-weight: 700;
+        }
+
+        h1 {
+            color: #ff6b6b;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            color: #ff8787;
+        }
+
         .super-love {
             font-size: 1.5em;
             color: #ff4757;
@@ -308,31 +298,6 @@
         @keyframes subtle-hint {
             0% { opacity: 0.2; }
             100% { opacity: 0.3; }
-        }
-
-        .music-controls {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        .music-btn {
-            background: var(--button-color);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .music-btn:hover {
-            transform: scale(1.05);
-            background: var(--button-hover);
         }
 
         .celebration-image-container {
@@ -367,41 +332,6 @@
                 transform: translateY(0);
             }
         }
-
-        .final-yes {
-            background: #4CAF50;
-            padding: 15px 30px;
-            font-size: 1.3rem;
-        }
-
-        .final-yes:hover {
-            background: #45a049;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 1.5rem;
-                margin: 10px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.5rem;
-            }
-            
-            .cute-btn {
-                padding: 10px 20px;
-                font-size: 1rem;
-            }
-            
-            .music-btn {
-                padding: 8px 16px;
-                font-size: 14px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -414,15 +344,6 @@
     <div class="container">
         <h1 id="valentineTitle"></h1>
         
-        <!-- Player de Música -->
-        <div id="musicControls" class="music-controls">
-            <button id="musicToggle" class="music-btn">🎵 Tocar Música</button>
-            <audio id="bgMusic" loop>
-                <source id="musicSource" type="audio/mpeg">
-                Seu navegador não suporta o elemento de áudio.
-            </audio>
-        </div>
-
         <!-- Primeira Pergunta -->
         <div class="question-section" id="question1">
             <h2 id="question1Text"></h2>
@@ -458,7 +379,7 @@
             <h2 id="celebrationTitle"></h2>
             <div class="celebration-image-container">
                 <!-- Imagem substituída por placeholder - substitua pelo caminho correto da sua imagem -->
-                <img src="https://placehold.co/600x400/ff6b6b/white?text=Nossa+Foto" alt="Nós" class="celebration-image">
+                <img src="/img/b3235f97-49f3-4fc7-b251-dddee2285c3e.jpg" alt="Nós" class="celebration-image">
             </div>
             <p class="celebration-text" id="celebrationMessage"></p>
         </div>
@@ -470,96 +391,79 @@
             valentineName: "Ariane",
             pageTitle: "Quer Ser Minha Namorada? 💝",
             floatingEmojis: {
-                hearts: ['❤️', '💖', '💗', '💓', '💘'],
-                bears: ['🐻', '🧸']                       
+                hearts: ['❤️', '💖', '🦟', '💗', '💓'],
+                bears: ['🦟', '🦟']                       
             },
+            // Perguntas e respostas
             questions: {
                 first: {
-                    text: "Você gosta de mim?",
-                    yesBtn: "Sim",
-                    noBtn: "Não",
-                    secretAnswer: "Eu não gosto de você, eu te amo! ❤️"
+                    text: "Você gosta de mim?",                                    // Primeira interação
+                    yesBtn: "Sim",                                             // Texto para o botão "Sim"
+                    noBtn: "Não",                                               // Texto para o botão "Não"
+                    secretAnswer: "Eu não gosto de você, eu te amo! ❤️"           // Mensagem secreta ao passar o mouse
                 },
                 second: {
-                    text: "Quanto você me ama?",
-                    startText: "Pense bem!",
-                    nextBtn: "Próximo ❤️"
+                    text: "Quanto você me ama?",                          // Para o medidor de amor
+                    startText: "Pense bem!",                                   // Texto antes da porcentagem
+                    nextBtn: "Próximo ❤️"                                         // Texto para o botão próximo
                 },
                 third: {
-                    text: "Você quer ser minha namorada?",
-                    yesBtn: "Sim!",
-                    noBtn: "Não"
+                    text: "Você quer ser minha namorada?", // A grande pergunta!
+                    yesBtn: "Sim!",                                             // Texto para o botão "Sim"
+                    noBtn: "Não"                                                 // Texto para o botão "Não"
                 }
             },
+            // Mensagens do medidor de amor
+            // Elas aparecem dependendo de quanto deslizam o medidor
             loveMessages: {
-                extreme: "Agora sim 🥰❤️",
-                high: "Ta melhorando! ❤️",
-                normal: "Só isso?"
+                extreme: "Agora sim 🥰❤️",  // Aparece quando passam de 5000%
+                high: "Ta melhorando! ❤️",              // Aparece quando passam de 1000%
+                normal: "Só isso?"                           // Aparece quando passam de 100%
             },
+            // Mensagens que aparecem depois que dizem "Sim!"
             celebration: {
-                title: "Vê que casal lindo, vamos ter muitos momentos ainda!💖💓",
-                message: "Agora você tem direito a um desejo, use com sabedoria!!"
+                title: "Eba! Eu sou a pessoa mais sortuda do mundo! 🎉💝💖💝💓",
+                message: "Agora venha buscar seu presente, um grande abraço quente e um enorme beijo!"
+                // Nota: Removemos os emojis de celebração pois agora temos uma imagem
             },
+            // Esquema de cores para o site
             colors: {
-                backgroundStart: "#ffafbd",
-                backgroundEnd: "#ffc3a0",
-                buttonBackground: "#ff6b6b",
-                buttonHover: "#ff8787",
-                textColor: "#ff4757"
+                backgroundStart: "#ffafbd",      // Início do gradiente (tente cores pastéis para um visual suave)
+                backgroundEnd: "#ffc3a0",        // Fim do gradiente (deve complementar backgroundStart)
+                buttonBackground: "#ff6b6b",     // Cor do botão (deve se destacar contra o fundo)
+                buttonHover: "#ff8787",          // Cor do botão ao passar o mouse (ligeiramente mais clara que buttonBackground)
+                textColor: "#ff4757"             // Cor do texto (certifique-se de que seja legível!)
             },
+            // Configurações de animação
+            // Ajuste estes se quiser animações mais rápidas/mais lentas
             animations: {
-                floatDuration: "15s",
-                floatDistance: "50px",
-                bounceSpeed: "0.5s",
-                heartExplosionSize: 1.5
-            },
-            music: {
-                enabled: true,
-                autoplay: true,
-                musicUrl: "https://res.cloudinary.com/dncywqfpb/video/upload/v1738399057/music_qrhjvy.mp3",
-                startText: "🎵 Tocar Música",
-                stopText: "🔇 Parar Música",
-                volume: 0.5
+                floatDuration: "15s",           // Quanto tempo leva para os corações flutuarem (10-20s recomendado)
+                floatDistance: "50px",          // Quão longe os corações se movem lateralmente (30-70px recomendado)
+                bounceSpeed: "0.5s",            // Velocidade das animações de quique (0.3-0.7s recomendado)
+                heartExplosionSize: 1.5         // Tamanho do efeito de explosão de coração (1.2-2.0 recomendado)
             }
         };
-
-        // Aplicar tema
-        function applyTheme() {
-            const root = document.documentElement;
-            root.style.setProperty('--background-color-1', CONFIG.colors.backgroundStart);
-            root.style.setProperty('--background-color-2', CONFIG.colors.backgroundEnd);
-            root.style.setProperty('--button-color', CONFIG.colors.buttonBackground);
-            root.style.setProperty('--button-hover', CONFIG.colors.buttonHover);
-            root.style.setProperty('--text-color', CONFIG.colors.textColor);
-            root.style.setProperty('--float-duration', CONFIG.animations.floatDuration);
-            root.style.setProperty('--float-distance', CONFIG.animations.floatDistance);
-            root.style.setProperty('--bounce-speed', CONFIG.animations.bounceSpeed);
-            root.style.setProperty('--heart-explosion-size', CONFIG.animations.heartExplosionSize);
-        }
 
         // Validar configuração
         function validateConfig() {
             const warnings = [];
+
+            // Verificar campos obrigatórios
             if (!CONFIG.valentineName) {
                 warnings.push("O nome do(a) namorado(a) não está definido! Usando padrão.");
                 CONFIG.valentineName = "Meu Dengo";
             }
-            
+
+            // Validar cores
             const isValidHex = (hex) => /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(hex);
             Object.entries(CONFIG.colors).forEach(([key, value]) => {
                 if (!isValidHex(value)) {
                     warnings.push(`Cor inválida para ${key}! Usando padrão.`);
-                    const defaults = {
-                        backgroundStart: "#ffafbd",
-                        backgroundEnd: "#ffc3a0",
-                        buttonBackground: "#ff6b6b",
-                        buttonHover: "#ff8787",
-                        textColor: "#ff4757"
-                    };
-                    CONFIG.colors[key] = defaults[key];
+                    CONFIG.colors[key] = getDefaultColor(key);
                 }
             });
 
+            // Validar valores de animação
             if (parseFloat(CONFIG.animations.floatDuration) < 5) {
                 warnings.push("Duração de flutuação muito curta! Definindo para mínimo de 5s.");
                 CONFIG.animations.floatDuration = "5s";
@@ -570,39 +474,82 @@
                 CONFIG.animations.heartExplosionSize = 1.5;
             }
 
+            // Registrar avisos se houver
             if (warnings.length > 0) {
                 console.warn("⚠️ Avisos de Configuração:");
                 warnings.forEach(warning => console.warn("- " + warning));
             }
         }
 
+        // Valores de cor padrão
+        function getDefaultColor(key) {
+            const defaults = {
+                backgroundStart: "#ffafbd",
+                backgroundEnd: "#ffc3a0",
+                buttonBackground: "#ff6b6b",
+                buttonHover: "#ff8787",
+                textColor: "#ff4757"
+            };
+            return defaults[key];
+        }
+
+        // Definir título da página
+        document.title = CONFIG.pageTitle;
+
         // Inicializar o conteúdo da página quando o DOM estiver carregado
         window.addEventListener('DOMContentLoaded', () => {
+            // Validar configuração primeiro
             validateConfig();
-            applyTheme();
 
-            document.title = CONFIG.pageTitle;
+            // Definir textos a partir da configuração
             document.getElementById('valentineTitle').textContent = `${CONFIG.valentineName}, meu dengo...`;
+            
+            // Definir textos da primeira pergunta
             document.getElementById('question1Text').textContent = CONFIG.questions.first.text;
             document.getElementById('yesBtn1').textContent = CONFIG.questions.first.yesBtn;
             document.getElementById('noBtn1').textContent = CONFIG.questions.first.noBtn;
             document.getElementById('secretAnswerBtn').textContent = CONFIG.questions.first.secretAnswer;
+            
+            // Definir textos da segunda pergunta
             document.getElementById('question2Text').textContent = CONFIG.questions.second.text;
             document.getElementById('startText').textContent = CONFIG.questions.second.startText;
             document.getElementById('nextBtn').textContent = CONFIG.questions.second.nextBtn;
+            
+            // Definir textos da terceira pergunta
             document.getElementById('question3Text').textContent = CONFIG.questions.third.text;
             document.getElementById('yesBtn3').textContent = CONFIG.questions.third.yesBtn;
             document.getElementById('noBtn3').textContent = CONFIG.questions.third.noBtn;
 
+            // Criar elementos flutuantes iniciais
             createFloatingElements();
-            setupMusicPlayer();
-            setInitialPosition();
+
+            // Aplicar tema
+            applyTheme();
         });
+
+        // Aplicar tema
+        function applyTheme() {
+            const root = document.documentElement;
+
+            // Aplicar cores
+            root.style.setProperty('--background-color-1', CONFIG.colors.backgroundStart);
+            root.style.setProperty('--background-color-2', CONFIG.colors.backgroundEnd);
+            root.style.setProperty('--button-color', CONFIG.colors.buttonBackground);
+            root.style.setProperty('--button-hover', CONFIG.colors.buttonHover);
+            root.style.setProperty('--text-color', CONFIG.colors.textColor);
+
+            // Aplicar configurações de animação
+            root.style.setProperty('--float-duration', CONFIG.animations.floatDuration);
+            root.style.setProperty('--float-distance', CONFIG.animations.floatDistance);
+            root.style.setProperty('--bounce-speed', CONFIG.animations.bounceSpeed);
+            root.style.setProperty('--heart-explosion-size', CONFIG.animations.heartExplosionSize);
+        }
 
         // Criar corações e ursos flutuantes
         function createFloatingElements() {
             const container = document.querySelector('.floating-elements');
             
+            // Criar corações
             CONFIG.floatingEmojis.hearts.forEach(heart => {
                 const div = document.createElement('div');
                 div.className = 'heart';
@@ -611,6 +558,7 @@
                 container.appendChild(div);
             });
 
+            // Criar ursos
             CONFIG.floatingEmojis.bears.forEach(bear => {
                 const div = document.createElement('div');
                 div.className = 'bear';
@@ -664,6 +612,7 @@
                 loveMeter.style.width = `calc(100% + ${extraWidth}px)`;
                 loveMeter.style.transition = 'width 0.3s';
                 
+                // Mostrar mensagens diferentes com base no valor
                 if (value >= 5000) {
                     extraLove.classList.add('super-love');
                     extraLove.textContent = CONFIG.loveMessages.extreme;
@@ -681,15 +630,21 @@
             }
         });
 
+        // Inicializar medidor de amor
+        window.addEventListener('DOMContentLoaded', setInitialPosition);
+        window.addEventListener('load', setInitialPosition);
+
         // Função de celebração
         function celebrate() {
             document.querySelectorAll('.question-section').forEach(q => q.classList.add('hidden'));
             const celebration = document.getElementById('celebration');
             celebration.classList.remove('hidden');
             
+            // Definir mensagens de celebração
             document.getElementById('celebrationTitle').textContent = CONFIG.celebration.title;
             document.getElementById('celebrationMessage').textContent = CONFIG.celebration.message;
             
+            // Criar efeito de explosão de coração
             createHeartExplosion();
         }
 
@@ -703,43 +658,6 @@
                 document.querySelector('.floating-elements').appendChild(heart);
                 setRandomPosition(heart);
             }
-        }
-
-        // Configuração do Player de Música
-        function setupMusicPlayer() {
-            const musicControls = document.getElementById('musicControls');
-            const musicToggle = document.getElementById('musicToggle');
-            const bgMusic = document.getElementById('bgMusic');
-            const musicSource = document.getElementById('musicSource');
-
-            if (!CONFIG.music.enabled) {
-                musicControls.style.display = 'none';
-                return;
-            }
-
-            musicSource.src = CONFIG.music.musicUrl;
-            bgMusic.volume = CONFIG.music.volume || 0.5;
-            bgMusic.load();
-
-            if (CONFIG.music.autoplay) {
-                const playPromise = bgMusic.play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(error => {
-                        console.log("Reprodução automática impedida pelo navegador");
-                        musicToggle.textContent = CONFIG.music.startText;
-                    });
-                }
-            }
-
-            musicToggle.addEventListener('click', () => {
-                if (bgMusic.paused) {
-                    bgMusic.play();
-                    musicToggle.textContent = CONFIG.music.stopText;
-                } else {
-                    bgMusic.pause();
-                    musicToggle.textContent = CONFIG.music.startText;
-                }
-            });
         }
     </script>
 </body>
