@@ -360,7 +360,7 @@
             <h2 id="question2Text"></h2>
             <!-- Configurações do medidor de amor: min="0" max="10000" -->
             <div class="love-meter">
-                <input type="range" min="0" max="10000" value="100" class="slider" id="loveMeter">
+                <input type="range" min="0" max="10000" value="0" class="slider" id="loveMeter">
                 <p>
                     <span class="love-value-container"><span id="startText"></span> (<span id="loveValue">100</span>%)</span>
                     <span id="extraLove" class="hidden"></span>
@@ -422,8 +422,8 @@
             },
             // Mensagens que aparecem depois que dizem "Sim!"
             celebration: {
-                title: "Eba! Eu sou a pessoa mais sortuda do mundo! 🎉💝💖💝💓",
-                message: "Agora venha buscar seu presente, um grande abraço quente e um enorme beijo!"
+                title: "Otara! Que sorte a minha!",
+                message: "Agora você tem direito a dois desejos e também a escolher nosso próximo destino!"
                 // Nota: Removemos os emojis de celebração pois agora temos uma imagem
             },
             // Esquema de cores para o site
@@ -451,7 +451,7 @@
             // Verificar campos obrigatórios
             if (!CONFIG.valentineName) {
                 warnings.push("O nome do(a) namorado(a) não está definido! Usando padrão.");
-                CONFIG.valentineName = "Meu Dengo";
+                CONFIG.valentineName = "Minha denguinha";
             }
 
             // Validar cores
@@ -502,7 +502,7 @@
             validateConfig();
 
             // Definir textos a partir da configuração
-            document.getElementById('valentineTitle').textContent = `${CONFIG.valentineName}, meu dengo...`;
+            document.getElementById('valentineTitle').textContent = `${CONFIG.valentineName}, minha denguinha...`;
             
             // Definir textos da primeira pergunta
             document.getElementById('question1Text').textContent = CONFIG.questions.first.text;
@@ -596,8 +596,8 @@
         const extraLove = document.getElementById('extraLove');
 
         function setInitialPosition() {
-            loveMeter.value = 100;
-            loveValue.textContent = 100;
+            loveMeter.value = 0;
+            loveValue.textContent = 0;
             loveMeter.style.width = '100%';
         }
 
