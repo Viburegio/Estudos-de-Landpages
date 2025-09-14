@@ -332,11 +332,6 @@
                 transform: translateY(0);
             }
         }
-        
-        /* NOVO ESTILO PARA O BOTÃO QUE CRESCE */
-        .growing-btn {
-            transition: all 0.3s ease-out !important;
-        }
     </style>
 </head>
 <body>
@@ -352,8 +347,8 @@
         <!-- Primeira Pergunta -->
         <div class="question-section" id="question1">
             <h2 id="question1Text"></h2>
-            <button class="cute-btn growing-btn" onclick="moveButton(this)" id="yesBtn1"></button>
-            <button class="cute-btn" onclick="handleNoClick()" id="noBtn1"></button>
+            <button class="cute-btn" onclick="moveButton(this)" id="yesBtn1"></button>
+            <button class="cute-btn" onclick="moveButton(this)" id="noBtn1"></button>
             <!-- PERSONALIZAR: Texto da resposta secreta -->
             <div class="secret-answer">
                 <button class="cute-btn special" onclick="showNextQuestion(2)" id="secretAnswerBtn"></button>
@@ -377,8 +372,8 @@
         <!-- Pergunta Final -->
         <div class="question-section hidden" id="question3">
             <h2 id="question3Text"></h2>
-            <button class="cute-btn final-yes growing-btn" onclick="celebrate()" id="yesBtn3"></button>
-            <button class="cute-btn" onclick="handleNoClickFinal()" id="noBtn3"></button>
+            <button class="cute-btn final-yes" onclick="celebrate()" id="yesBtn3"></button>
+            <button class="cute-btn" onclick="moveButton(this)" id="noBtn3"></button>
         </div>
         <div class="celebration hidden" id="celebration">
             <h2 id="celebrationTitle"></h2>
@@ -448,10 +443,6 @@
                 heartExplosionSize: 1.5         // Tamanho do efeito de explosão de coração (1.2-2.0 recomendado)
             }
         };
-
-        // Variáveis para controlar o crescimento dos botões
-        let yesButtonSize = 1;
-        let noClickCount = 0;
 
         // Validar configuração
         function validateConfig() {
@@ -597,64 +588,6 @@
             button.style.position = 'fixed';
             button.style.left = x + 'px';
             button.style.top = y + 'px';
-        }
-
-        // NOVA FUNÇÃO: Manipula o clique no botão "Não" (primeira pergunta)
-        function handleNoClick() {
-            noClickCount++;
-            yesButtonSize += 0.2;
-            
-            // Aumentar o botão Sim
-            const yesButton = document.getElementById('yesBtn1');
-            yesButton.style.transform = `scale(${yesButtonSize})`;
-            
-            // Adicionar efeito visual
-            yesButton.classList.add('pulse');
-            setTimeout(() => {
-                yesButton.classList.remove('pulse');
-            }, 300);
-            
-            // Mover o botão Não (comportamento original)
-            moveButton(document.getElementById('noBtn1'));
-            
-            // Adicionar corações extras a cada 2 cliques
-            if (noClickCount % 2 === 0) {
-                const heartsContainer = document.querySelector('.floating-elements');
-                const heart = document.createElement('div');
-                heart.className = 'heart';
-                heart.innerHTML = '❤️';
-                setRandomPosition(heart);
-                heartsContainer.appendChild(heart);
-            }
-        }
-
-        // NOVA FUNÇÃO: Manipula o clique no botão "Não" (pergunta final)
-        function handleNoClickFinal() {
-            noClickCount++;
-            yesButtonSize += 0.2;
-            
-            // Aumentar o botão Sim
-            const yesButton = document.getElementById('yesBtn3');
-            yesButton.style.transform = `scale(${yesButtonSize})`;
-            
-            // Adicionar efeito visual
-            yesButton.classList.add('pulse');
-            setTimeout(() => {
-                yesButton.classList.remove('pulse');
-            }, 300);
-            
-            // Mover o botão Não (comportamento original)
-            moveButton(document.getElementById('noBtn3'));
-            
-            // Adicionar corações extras a cada 2 cliques
-            if (noClickCount % 2 === 0) {
-                const heartsContainer = document.querySelector('.floating-elements');
-                const heart = document.createElement('div');
-                heart.className = 'heart';
-                heart.innerHTML = '❤️';
-                setRandomPosition(heart);
-                heartsContainer.appendChild(heart);
-            }
         }
 
         // Funcionalidade do medidor de amor
